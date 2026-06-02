@@ -1,0 +1,23 @@
+# File: .github/actions/setup-and-test/action.yml
+name: 'Setup and Test Application'
+description: 'Installs Node.js, installs dependencies, and runs tests'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+
+    - name: Install Dependencies
+      shell: bash
+      run: npm ci
+
+    - name: Build CLI
+      shell: bash
+      run: npm run build
+
+    - name: Run training mirror
+      shell: bash
+      run: node dist/cli.js

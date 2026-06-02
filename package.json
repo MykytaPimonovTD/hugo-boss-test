@@ -1,12 +1,21 @@
 {
-  "name": "hugo-boss-test",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {},
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "name": "@mykytapimonovtd/hugo-llm-mirror",
+  "version": "1.0.1",
+  "description": "Generates LLM training data from Hugo documentation",
+  "license": "UNLICENSED",
+  "files": [
+    "dist"
+  ],
+  "bin": {
+    "hugo-llm-mirror": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsup src/cli.ts --format cjs --clean",
+    "prepare": "npm run build"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "dependencies": {
     "minimatch": "^10.2.5"
   },
